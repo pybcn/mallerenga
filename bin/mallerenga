@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+
+import click
+
+from mallerenga.twitter.twitter import Twitter
+
+@click.command()
+@click.argument('msg', nargs=-1)
+def tweet(msg):
+    twitter = Twitter()
+    status = twitter.tweet(' '.join(msg))
+    print(status.link)
+
+if __name__ == '__main__':
+    tweet()
