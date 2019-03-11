@@ -2,6 +2,7 @@ import os
 
 
 def validate_credentials():
+    """This validates presence of Twitter credentials."""
     if 'TWITTER_CONSUMER_KEY' not in os.environ or \
        'TWITTER_CONSUMER_SECRET' not in os.environ or \
        'TWITTER_ACCESS_TOKEN' not in os.environ or \
