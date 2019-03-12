@@ -1,39 +1,40 @@
 # mallerenga
 
-Mallerenga is a toolkit for communities to handle their Twitter accounts.
+Mallerenga is a library to help managing Twitter accounts
 
-## Features
+## Installation
 
-Currently, mallerenga supports the following features:
-- Update status
+You can install it using `pip install` as usual:
+```bash
+pip install mallerenga
+```
 
 ## Requirements
 
-In order to use mallerenga, a Python 3 environment with Pipenv installed is required.
-
-A Twitter account with development credentials (consumer key and secret and access token and secret) are also required.
-
-## Install and setup
-
-The install steps are:
-```
-git clone https://github.com/pybcn/mallerenga
-cd mallerenga
-pipenv install
-```
-
-In order to have mallerenga setup, a `.env` file must be created, with the following content:
-```
-export PYTHONPATH=$PYTHONPATH:.
-export TWITTER_CONSUMER_KEY=<your Twitter account consumer key>
-export TWITTER_CONSUMER_SECRET=<your Twitter account consumer secret>
-export TWITTER_ACCESS_TOKEN=<your Twitter account access token>
-export TWITTER_ACCESS_TOKEN_SECRET=<your Twitter account access token secret>
-```
+A Twitter account with consumer key and secret and access token and secret is required.
+These credentials must be provided in the following environment variables:
+- `TWITTER_CONSUMER_KEY`: Consumer key
+- `TWITTER_CONSUMER_SECRET`: Consumer secret
+- `TWITTER_ACCESS_TOKEN`: Access token
+- `TWITTER_ACCESS_TOKEN_SECRET`: Access token secret
 
 ## Usage
 
+### As a module
+
+Mallerenga is intended to be user mostly as a module:
+```python
+from mallerenga.twitter.twitter import Twitter
+
+
+twitter = Twitter()
+status = twitter.tweet(msg)
+print(status.link)
+```
+
+### As a command
+
 To update the Twitter status, use the following command:
 ```
-pipenv run bin/mallerenga New status message
+mallerenga New status message
 ```
